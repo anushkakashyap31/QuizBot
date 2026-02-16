@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-lg font-medium 
+           hover:from-primary-700 hover:to-primary-800 transition-all duration-200 
+           shadow-lg hover:shadow-xl active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-700 px-6 py-3 rounded-lg font-medium border-2 border-primary-200
+           hover:border-primary-300 hover:bg-primary-50 transition-all duration-200 
+           shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-gradient-to-r from-danger-500 to-danger-600 text-white px-6 py-3 rounded-lg font-medium 
+           hover:from-danger-600 hover:to-danger-700 transition-all duration-200 
+           shadow-lg hover:shadow-xl active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-xl p-6 border border-gray-100;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 
+           focus:outline-none focus:ring-2 focus:ring-primary-200 transition-all duration-200;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-400 rounded-full hover:bg-primary-500;
+}
+
+/* Loading Animation */
+.loading-spinner {
+  border: 3px solid rgba(14, 165, 233, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #0ea5e9;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
