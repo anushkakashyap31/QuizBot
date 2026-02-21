@@ -1,3 +1,11 @@
-backend/firebase-credentials.json
 backend/.env
 backend/venv/
+backend/firebase-credentials.json
+backend/quizbot.db
+backend/data/vector_store/   (if it contains generated data)
+
+frontend/.env
+frontend/node_modules/
+
+.venv/
+.vscode/

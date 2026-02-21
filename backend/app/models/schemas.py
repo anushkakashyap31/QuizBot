@@ -1,5 +1,5 @@
-from pydantic import BaseModel, EmailStr
-from typing import List, Optional, Dict
+from pydantic import BaseModel, EmailStr, field_validator
+from typing import List, Optional, Dict, Union, Any
 from datetime import datetime
 
 class UserBase(BaseModel):
@@ -38,7 +38,17 @@ class Quiz(BaseModel):
     user_id: str
     email_context: str
     questions: List[Question]
-    created_at: datetime
+    created_at: Union[datetime, str, Any]  # Accept datetime, string, or any type
+    
+    @field_validator('created_at', mode='before')
+    @classmethod
+    def parse_created_at(cls, v):
+        if isinstance(v, str):
+            try:
+                return datetime.fromisoformat(v.replace('Z', '+00:00'))
+            except:
+                return datetime.now()
+        return v
 
 class Answer(BaseModel):
     question_id: str

@@ -19,10 +19,20 @@ class AuthService:
         self.db = db.reference()
     
     def verify_firebase_token(self, id_token: str) -> Optional[Dict]:
-        """Verify Firebase ID token"""
+        """Verify Firebase ID token with clock skew tolerance"""
         try:
-            decoded_token = auth.verify_id_token(id_token)
+            # Add 5 seconds of clock skew tolerance to handle system clock drift
+            decoded_token = auth.verify_id_token(
+                id_token,
+                clock_skew_seconds=5  # ← ADD THIS LINE
+            )
             return decoded_token
+        except auth.ExpiredIdTokenError:
+            print("Token verification error: Token has expired")
+            return None
+        except auth.InvalidIdTokenError as e:
+            print(f"Token verification error: Invalid token - {str(e)}")
+            return None
         except Exception as e:
             print(f"Token verification error: {e}")
             return None
