@@ -14,7 +14,7 @@ Python, Vector DB, LLM API
 
 ## Key Features
 
-- **AI Quiz Generation** — Paste any donor email and instantly generate 3–10 context-aware multiple-choice questions using Google Gemini 1.5 Flash
+- **AI Quiz Generation** — Paste any donor email and instantly generate 3–10 context-aware multiple-choice questions using Google Gemini 2.5 Flash
 - **Semantic Search** — ChromaDB stores email embeddings for intelligent similarity matching and context retrieval
 - **Smart Evaluation** — AI evaluates answers and generates personalized explanations for every question
 - **User Authentication** — Secure sign-up and login via Firebase Authentication
