@@ -29,20 +29,20 @@ QuizBot follows a **3-Tier Client-Server Architecture**:
 
 ```
 ┌─────────────────────────────────────────────┐
-│           Presentation Layer                 │
-│     React 19 + Vite + Tailwind CSS           │
+│           Presentation Layer                │
+│     React 19 + Vite + Tailwind CSS          │
 └─────────────────┬───────────────────────────┘
                   │  REST API (Axios)
 ┌─────────────────▼───────────────────────────┐
-│         Business Logic Layer                 │
-│   FastAPI (Python) — Auth, Quiz, Analytics   │
+│         Business Logic Layer                │
+│   FastAPI (Python) — Auth, Quiz, Analytics  │
 └──────┬──────────┬──────────┬────────────────┘
        │          │          │
-┌──────▼──┐  ┌───▼────┐  ┌──▼───────────────┐
+┌──────▼───┐  ┌───▼────┐  ┌──▼────────────────┐
 │ Firebase │  │ SQLite │  │    ChromaDB       │
 │  Auth +  │  │  ORM   │  │  Vector Search    │
 │ Real-DB  │  │        │  │  (384-dim embed.) │
-└──────────┘  └────────┘  └──────────────────┘
+└──────────┘  └────────┘  └───────────────────┘
                   ↕ Google Gemini 1.5 Flash API
 ```
 
