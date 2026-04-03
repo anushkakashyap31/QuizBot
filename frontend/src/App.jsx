@@ -53,7 +53,7 @@ function App() {
           setUser({
             uid: user.uid,
             email: user.email,
-            full_name: user.displayName || user.email.split('@')[0],
+            full_name: user.displayName,
           });
         } catch (error) {
           console.error('Auth state error:', error);
